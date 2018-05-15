@@ -70,8 +70,9 @@ a:hover {
   z-index: 1;
 }
 
+@gray:#333;
 .color333{
-  color: #333;
+  color: @gray;
 }
 
 .w100{width: 100%;}
@@ -170,5 +171,44 @@ header{
 
 }
 
+.details{
+  .list;
+  background-color: #fff;
+  padding: 0.533333rem;
+  height: 1.133333rem;
+  line-height: 1.133333rem;
+  h2{
+    font-size: 0.4rem;
+  }
+  .sub{
+    font-size: 0.32rem;
+    color:#666;
+    border-bottom: 1px solid @gray;
+    height: 0.666667rem;
+    padding-bottom: 0.333333rem;
+    .time{}
+    .author{}
+  }
+  .content-box{
+    padding-top:0.466667rem;
+    img{
+      width: 8.853333rem;
+      height: 5.466667rem;
+      overflow: hidden;
+    }
+    .title{
+      font-size: 0.32rem;
+      .color333;
+    }
+    .content{
+      font-size: 0.373333rem;
+      line-height: 0.8rem;
+    }
+  }
+}
+#app{
+  .list;
+  background-color: #fff;
+}
 
 

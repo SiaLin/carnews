@@ -20,44 +20,16 @@
     <!-- <a class="home postion_ab" href="#">&#xe902</a> -->
     <a class="home" href="#">h</a>
   </header>
-  <div class="list">
-    <ul>
-      <li>
-        <p class="title">最美自主车致尚XT竞争力分析</p>
-        <p class="about">
-          <span class="time">07-04 06:30</span>
-          <span class="author">搜狐汽车</span>
-        </p>
-        <img class="flag" src="images/flag.jpg" alt="">
-      </li>
-      <li>
-        <p class="title">最美自主车致尚XT竞争力分析</p>
-        <p class="about">
-          <span class="time">07-04 06:30</span>
-          <span class="author">搜狐汽车</span>
-        </p>
-        <img class="flag" src="images/flag.jpg" alt="">
-      </li>
-      <li>
-        <p class="title">最美自主车致尚XT竞争力分析</p>
-        <p class="about">
-          <span class="time">07-04 06:30</span>
-          <span class="author">搜狐汽车</span>f
-        </p>
-        <img class="flag" src="images/flag.jpg" alt="">
-      </li>
-      <li>
-        <p class="title">最美自主车致尚XT竞争力分析</p>
-        <p class="about">
-          <span class="time">07-04 06:30</span>
-          <span class="author">搜狐汽车</span>
-        </p>
-        <img class="flag" src="images/flag.jpg" alt="">
-      </li>
-    </ul>
-    <p class="loading">加载中</p>
-    <a href="#"></a>
+  <div id="app">
+    <!-- 路由出口 -->
+    <!-- 路由匹配到的组件将渲染在这里 -->
+    <router-view></router-view>
   </div>
+  <!-- details -->
+  
+
+<!-- news-list -->
+
   <nav>
     <a href=""></a>
   </nav>
@@ -66,10 +38,64 @@
   </ul>
   <p></p>
   <p class="copyright"></p>
+
+  
   <script type="text/javascript">
-      setTimeout(function(){
-        $('.list').velocity('transition.fadeIn')
-      },2000)
+      // setTimeout(function(){
+      //   $('.list').velocity('transition.fadeIn')
+      // },2000)
+  </script>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+  <script type="text/javascript">
+    
+      const List = { template: `<div class="list">
+    <ul>
+      
+      <router-link to="/view" tag='li'>
+        <p class="title">最美自主车致尚XT竞争力分析</p>
+        <p class="about">
+          <span class="time">07-04 06:30</span>
+          <span class="author">搜狐汽车</span>
+        </p>
+        <img class="flag" src="images/flag.jpg" alt="">
+      </router-link>
+       
+    </ul>
+    <p class="loading">加载中</p>
+    <a href="#"></a>
+  </div>` }
+      const View = { template: `<div class="details">
+      <router-link to="/" tag='a'>
+        返回
+      </router-link>
+      <h2>这里是标题</h2>
+      <div class="sub">
+        <span class="time">2018-05-15</span>
+        <span class="author">搜狐新闻</span>
+      </div>
+      <div class="content-box">
+        <img src="images/pic.jpg" alt="">
+        <p class="title">这是个小标题</p>
+        <p class="content">
+            这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。这是内容。
+        </p>
+      </div>
+  </div>` }
+
+
+      const routes = [
+        { path: '/', component: List },
+        { path: '/view', component: View }
+      ]
+
+      const router = new VueRouter({routes: routes})
+
+      
+      const app = new Vue({
+        router
+      }).$mount('#app')
+
   </script>
 </body>
 </html>
